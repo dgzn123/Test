@@ -1,5 +1,9 @@
 #include <stdio.h>
-
+void clear_input_buffer(void)
+{
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
 void read_and_print_motto(char *buffer, size_t size)
 {
     if (buffer == NULL || size == 0) return;
@@ -12,13 +16,14 @@ void read_and_print_motto(char *buffer, size_t size)
 int main(void)
 {
     char string[100];
+restart:
     read_and_print_motto(string, sizeof(string));
     char check;
     printf("Do you want to continue? (y/n): ");
     scanf(" %c", &check);
-    getchar();
+    clear_input_buffer();
     if (check == 'y' || check == 'Y') {
-        read_and_print_motto(string, sizeof(string));
+        goto restart;
     }
     return 0;
 }
