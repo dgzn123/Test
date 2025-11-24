@@ -13,5 +13,12 @@ int main(void)
 {
     char string[100];
     read_and_print_motto(string, sizeof(string));
+    char check;
+    printf("Do you want to continue? (y/n): ");
+    scanf(" %c", &check);
+    getchar();
+    if (check == 'y' || check == 'Y') {
+        read_and_print_motto(string, sizeof(string));
+    }
     return 0;
 }
