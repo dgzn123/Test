@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 void clear_input_buffer(void)
 {
     int c;
@@ -12,17 +13,21 @@ void read_and_print_motto(char *buffer, size_t size)
         printf("Your motto is: %s", buffer);
     }
 }
-
+bool should_continue(void)
+{
+    char response;
+    printf("Do you want to continue? (y/n): ");
+    scanf(" %c", &response);
+    clear_input_buffer();
+    return (response == 'y' || response == 'Y');
+}
 int main(void)
 {
     char string[100];
 restart:
     read_and_print_motto(string, sizeof(string));
-    char check;
-    printf("Do you want to continue? (y/n): ");
-    scanf(" %c", &check);
-    clear_input_buffer();
-    if (check == 'y' || check == 'Y') {
+    if (should_continue())
+    {
         goto restart;
     }
     return 0;
