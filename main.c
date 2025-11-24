@@ -23,12 +23,10 @@ bool should_continue(void)
 }
 int main(void)
 {
-    char string[100];
-restart:
-    read_and_print_motto(string, sizeof(string));
-    if (should_continue())
+    do
     {
-        goto restart;
-    }
+    char string[100];
+    read_and_print_motto(string, sizeof(string));
+    } while (should_continue());
     return 0;
 }
