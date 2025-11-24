@@ -23,10 +23,12 @@ bool should_continue(void)
 }
 int main(void)
 {
+    printf("Welcome to the Motto Program!\nYou can enter your favorite motto here.\nLet's get started!\n");
     do
     {
     char string[100];
     read_and_print_motto(string, sizeof(string));
     } while (should_continue());
+    printf("Thank you for using the Motto Program. Goodbye!\n");
     return 0;
 }
