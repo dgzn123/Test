@@ -30,5 +30,6 @@ int main(void)
     read_and_print_motto(string, sizeof(string));
     } while (should_continue());
     printf("Thank you for using the Motto Program. Goodbye!\n");
+    system("pause");
     return 0;
 }
